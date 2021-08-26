@@ -16,31 +16,42 @@ class CardView: UIView {
     enum CardViewState {
         case faceUp
         case faceDown
+        case gone
     }
     
     weak var delegate: CardViewDelegate?
     private var bgColor: UIColor?
-    private var state: CardViewState = .faceDown {
+    var state: CardViewState = .faceDown {
         willSet {
-            if let faceImageView = self.subviews[0] as? UIImageView {
-                faceImageView.isHidden = newValue == .faceDown
-            }
             
+            if let faceImageView = self.subviews[0] as? UIImageView {
+                if newValue == .gone {
+                    UIView.transition(with: self, duration: 1.0, options: .curveEaseInOut) {
+                        self.alpha = 0.0
+                    } completion: { (_) in
+                        self.isHidden = true
+                    }
+
+                } else {
+                    faceImageView.isHidden = newValue == .faceDown
+                    UIView.transition(with: self, duration: 1.0, options: .transitionFlipFromLeft, animations: nil)
+                }
+            }
         }
     }
     
-    var faceImage: UIImage?
+    var faceImage: CardImage?
     
     override func draw(_ rect: CGRect) {
         bgColor?.setFill()
         UIRectFill(rect)
     }
     
-    init(frame: CGRect, faceImage: UIImage?, andColor color: UIColor) {
+    init(frame: CGRect, faceImage: CardImage, andColor color: UIColor) {
         super.init(frame: frame)
         self.bgColor = color
         self.setNeedsDisplay()
-        let faceImageView = UIImageView(image: faceImage)
+        let faceImageView = UIImageView(image: faceImage.image)
         faceImageView.contentMode = .scaleAspectFill
         self.addSubview(faceImageView)
         faceImageView.isHidden = self.state == .faceDown

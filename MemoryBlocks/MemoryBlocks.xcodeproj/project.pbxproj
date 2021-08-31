@@ -17,6 +17,8 @@
 		375337E726D6D71500F1DEF8 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375337E626D6D71500F1DEF8 /* CardView.swift */; };
 		375337EA26D7669B00F1DEF8 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375337E926D7669B00F1DEF8 /* AppConstants.swift */; };
 		375337F126D7F13700F1DEF8 /* FaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375337F026D7F13700F1DEF8 /* FaceImage.swift */; };
+		379DB47026DDA4F2001910CF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379DB46F26DDA4F2001910CF /* WelcomeViewController.swift */; };
+		379DB47526DDAA83001910CF /* DMAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379DB47426DDAA83001910CF /* DMAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		375337E626D6D71500F1DEF8 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		375337E926D7669B00F1DEF8 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		375337F026D7F13700F1DEF8 /* FaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceImage.swift; sourceTree = "<group>"; };
+		379DB46F26DDA4F2001910CF /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		379DB47426DDAA83001910CF /* DMAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +68,11 @@
 		375337CE26D6D64600F1DEF8 /* MemoryBlocks */ = {
 			isa = PBXGroup;
 			children = (
+				379DB47226DDA535001910CF /* Views */,
+				3787E42926DB3A94006A8ED2 /* Start Screen */,
 				375337F726D7F5A000F1DEF8 /* Configuration */,
 				375337EF26D7F10600F1DEF8 /* Shared */,
-				375337ED26D7F06C00F1DEF8 /* Game */,
+				375337ED26D7F06C00F1DEF8 /* ViewControllers */,
 				375337D826D6D64900F1DEF8 /* Assets.xcassets */,
 				375337E526D6D6E000F1DEF8 /* CardView */,
 			);
@@ -81,13 +87,13 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
-		375337ED26D7F06C00F1DEF8 /* Game */ = {
+		375337ED26D7F06C00F1DEF8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				379DB46F26DDA4F2001910CF /* WelcomeViewController.swift */,
 				375337D326D6D64600F1DEF8 /* GameViewController.swift */,
-				375337D526D6D64600F1DEF8 /* Main.storyboard */,
 			);
-			path = Game;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		375337EF26D7F10600F1DEF8 /* Shared */ = {
@@ -96,6 +102,7 @@
 				375337E926D7669B00F1DEF8 /* AppConstants.swift */,
 				375337F026D7F13700F1DEF8 /* FaceImage.swift */,
 				371772DA26D81F0E00F0611E /* CardImage.swift */,
+				379DB47426DDAA83001910CF /* DMAlertController.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -105,10 +112,25 @@
 			children = (
 				375337CF26D6D64600F1DEF8 /* AppDelegate.swift */,
 				375337D126D6D64600F1DEF8 /* SceneDelegate.swift */,
-				375337DA26D6D64900F1DEF8 /* LaunchScreen.storyboard */,
 				375337DD26D6D64900F1DEF8 /* Info.plist */,
 			);
 			name = Configuration;
+			sourceTree = "<group>";
+		};
+		3787E42926DB3A94006A8ED2 /* Start Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Start Screen";
+			sourceTree = "<group>";
+		};
+		379DB47226DDA535001910CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				375337DA26D6D64900F1DEF8 /* LaunchScreen.storyboard */,
+				375337D526D6D64600F1DEF8 /* Main.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,12 +204,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				375337F126D7F13700F1DEF8 /* FaceImage.swift in Sources */,
+				379DB47026DDA4F2001910CF /* WelcomeViewController.swift in Sources */,
 				375337D426D6D64600F1DEF8 /* GameViewController.swift in Sources */,
 				375337D026D6D64600F1DEF8 /* AppDelegate.swift in Sources */,
 				375337EA26D7669B00F1DEF8 /* AppConstants.swift in Sources */,
 				375337E726D6D71500F1DEF8 /* CardView.swift in Sources */,
 				371772DB26D81F0E00F0611E /* CardImage.swift in Sources */,
 				375337D226D6D64600F1DEF8 /* SceneDelegate.swift in Sources */,
+				379DB47526DDAA83001910CF /* DMAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9QJR3L6776;
 				INFOPLIST_FILE = MemoryBlocks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,6 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9QJR3L6776;
 				INFOPLIST_FILE = MemoryBlocks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

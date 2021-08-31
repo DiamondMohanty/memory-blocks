@@ -16,9 +16,10 @@ enum AppTheme {
         case .halloween:
             return UIColor.orange
         case .normal:
-            return UIColor.white
+            return UIColor(red: 22/255, green: 156/255, blue: 173/255, alpha: 1.0)
         }
     }
 }
+
 
 

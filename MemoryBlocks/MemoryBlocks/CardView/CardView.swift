@@ -21,6 +21,7 @@ class CardView: UIView {
     
     weak var delegate: CardViewDelegate?
     private var bgColor: UIColor?
+    var faceUpTouchEnabled = false
     var state: CardViewState = .faceDown {
         willSet {
             
@@ -43,11 +44,15 @@ class CardView: UIView {
     var faceImage: CardImage?
     
     override func draw(_ rect: CGRect) {
-        bgColor?.setFill()
-        UIRectFill(rect)
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowRadius = 10.0
+        self.layer.shadowOffset = .zero
+        self.layer.cornerRadius = 10.0
+        self.layer.backgroundColor = self.bgColor?.cgColor
+        
     }
     
-    init(frame: CGRect, faceImage: CardImage, andColor color: UIColor) {
+    init(frame: CGRect, faceImage: CardImage, color: UIColor, andTintColor tintColor: UIColor = .white) {
         super.init(frame: frame)
         self.bgColor = color
         self.setNeedsDisplay()
@@ -56,6 +61,7 @@ class CardView: UIView {
         self.addSubview(faceImageView)
         faceImageView.isHidden = self.state == .faceDown
         self.faceImage = faceImage
+        self.tintColor = tintColor
     }
     
     override func layoutSubviews() {
@@ -75,15 +81,21 @@ class CardView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
         // Flip Animation when tapped on the card view and show/hide image
         if self.state == .faceDown {
             self.state = .faceUp
             UIView.transition(with: self, duration: 1.0, options: .transitionFlipFromRight, animations: nil)
-        } else {
+            self.delegate?.tapped(onCardView: self, andFinalState: self.state)
+        }
+        
+        
+        if self.faceUpTouchEnabled && self.state == .faceUp {
             self.state = .faceDown
             UIView.transition(with: self, duration: 1.0, options: .transitionFlipFromLeft, animations: nil)
+            self.delegate?.tapped(onCardView: self, andFinalState: self.state)
         }
-        self.delegate?.tapped(onCardView: self, andFinalState: self.state)
+        
     }
     
 }

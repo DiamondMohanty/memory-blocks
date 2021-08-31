@@ -25,14 +25,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        switch self.theme {
-        case .halloween:
-            self.view.backgroundColor = .black
-        case .normal:
-            self.view.backgroundColor = .white
-        }
         self.containerView.backgroundColor = self.view.backgroundColor
         self.initializeGame()
     }
@@ -48,12 +40,14 @@ class GameViewController: UIViewController {
         var currentX: CGFloat = 0.0
         var currentY: CGFloat = (CGFloat(gridSize.1) * cardDimension) + (spacing * CGFloat(gridSize.1))
         
-        let newContainerFrame = CGRect(origin: self.containerView.bounds.origin, size: CGSize(width: self.containerView.bounds.width, height: currentY))
+        let newContainerFrame = CGRect(origin: CGPoint(x: self.view.bounds.origin.x, y: self.view.bounds.origin.y), size: CGSize(width: self.view.bounds.width - 5, height: currentY))
         self.containerView.frame = newContainerFrame
         self.containerView.center = self.view.center
         
         currentX = self.containerView.bounds.origin.x
         currentY = self.containerView.bounds.origin.y
+        
+        let cardTintColor: UIColor = self.theme == .halloween ? .systemBlue : .white
         
         // Arrange cards
         let imageList = self.images + self.images
@@ -64,7 +58,7 @@ class GameViewController: UIViewController {
                 currentX = self.containerView.bounds.origin.x
             }
             
-            let aCardView = CardView(frame: CGRect(x: currentX, y: currentY, width: cardDimension, height: cardDimension), faceImage: CardImage(systemName: image), andColor: self.theme.getColor())
+            let aCardView = CardView(frame: CGRect(x: currentX, y: currentY, width: cardDimension, height: cardDimension), faceImage: CardImage(systemName: image), color: self.theme.getColor(), andTintColor: cardTintColor)
             aCardView.delegate = self
             self.cardViews.append(aCardView)
             self.containerView.addSubview(aCardView)
@@ -77,11 +71,17 @@ class GameViewController: UIViewController {
 
 extension GameViewController: CardViewDelegate {
     func tapped(onCardView: CardView, andFinalState: CardView.CardViewState) {
+            
         tapCounter += 1
         totalMoves += 1
         if tapCounter == 2 {
             
             let upCards = self.cardViews.filter {$0.state == .faceUp}
+            
+            guard upCards.count == 2 else {
+                return
+            }
+            
             if upCards[0].faceImage == upCards[1].faceImage {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     _ = upCards.map({ (card) -> Void in

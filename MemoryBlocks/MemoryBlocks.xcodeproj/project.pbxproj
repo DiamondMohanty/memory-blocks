@@ -69,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				379DB47226DDA535001910CF /* Views */,
-				3787E42926DB3A94006A8ED2 /* Start Screen */,
 				375337F726D7F5A000F1DEF8 /* Configuration */,
 				375337EF26D7F10600F1DEF8 /* Shared */,
 				375337ED26D7F06C00F1DEF8 /* ViewControllers */,
@@ -115,13 +114,6 @@
 				375337DD26D6D64900F1DEF8 /* Info.plist */,
 			);
 			name = Configuration;
-			sourceTree = "<group>";
-		};
-		3787E42926DB3A94006A8ED2 /* Start Screen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Start Screen";
 			sourceTree = "<group>";
 		};
 		379DB47226DDA535001910CF /* Views */ = {

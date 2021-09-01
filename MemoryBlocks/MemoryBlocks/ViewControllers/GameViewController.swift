@@ -19,9 +19,13 @@ class GameViewController: UIViewController {
             moveLabel.text = "\(totalMoves)"
         }
     }
+    var timer: Timer?
+    var timeElapsed = 0
+    
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var moveLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,16 @@ class GameViewController: UIViewController {
     }
     
     func initializeGame() {
+        
+        self.timerLabel.text = "00"
+        self.moveLabel.text = "00"
+        self.timeElapsed = 0
+        
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [unowned self] (timer) in
+            self.timeElapsed += 1
+            self.timerLabel.text = "\(self.timeElapsed) s"
+        })
         
         let gridSize = (4,4)
         self.images = FaceImages.getImages(forGridSize: gridSize)
@@ -67,6 +81,20 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBAction func newGame(_ sender: UIButton) {
+        
+        self.cardViews.removeAll()
+        for view in self.containerView.subviews {
+            view.removeFromSuperview()
+        }
+        self.initializeGame()
+        
+    }
+    
+    deinit {
+        self.timer?.invalidate()
+    }
+    
 }
 
 extension GameViewController: CardViewDelegate {
@@ -89,6 +117,7 @@ extension GameViewController: CardViewDelegate {
                     })
                 }
             }
+            
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
                 _ = self.cardViews.filter { (card) -> Bool in

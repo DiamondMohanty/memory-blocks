@@ -19,6 +19,7 @@
 		375337F126D7F13700F1DEF8 /* FaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375337F026D7F13700F1DEF8 /* FaceImage.swift */; };
 		379DB47026DDA4F2001910CF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379DB46F26DDA4F2001910CF /* WelcomeViewController.swift */; };
 		379DB47526DDAA83001910CF /* DMAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379DB47426DDAA83001910CF /* DMAlertController.swift */; };
+		37FB52E226DF22A60002BF49 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB52E126DF22A50002BF49 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		375337F026D7F13700F1DEF8 /* FaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceImage.swift; sourceTree = "<group>"; };
 		379DB46F26DDA4F2001910CF /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		379DB47426DDAA83001910CF /* DMAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMAlertController.swift; sourceTree = "<group>"; };
+		37FB52E126DF22A50002BF49 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				379DB46F26DDA4F2001910CF /* WelcomeViewController.swift */,
 				375337D326D6D64600F1DEF8 /* GameViewController.swift */,
+				37FB52E126DF22A50002BF49 /* InfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				379DB47026DDA4F2001910CF /* WelcomeViewController.swift in Sources */,
 				375337D426D6D64600F1DEF8 /* GameViewController.swift in Sources */,
 				375337D026D6D64600F1DEF8 /* AppDelegate.swift in Sources */,
+				37FB52E226DF22A60002BF49 /* InfoViewController.swift in Sources */,
 				375337EA26D7669B00F1DEF8 /* AppConstants.swift in Sources */,
 				375337E726D6D71500F1DEF8 /* CardView.swift in Sources */,
 				371772DB26D81F0E00F0611E /* CardImage.swift in Sources */,

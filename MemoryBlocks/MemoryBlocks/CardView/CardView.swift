@@ -28,9 +28,9 @@ class CardView: UIView {
             if let faceImageView = self.subviews[0] as? UIImageView {
                 if newValue == .gone {
                     UIView.transition(with: self, duration: 1.0, options: .curveEaseInOut) {
-                        self.alpha = 0.0
+                        self.alpha = 0.25
                     } completion: { (_) in
-                        self.isHidden = true
+                        self.alpha = 0.25
                     }
 
                 } else {

@@ -84,12 +84,40 @@
                     <connections>
                         <outlet property="containerView" destination="pK2-46-NRa" id="GBJ-23-5bB"/>
                         <outlet property="moveLabel" destination="UB2-bn-95x" id="RfK-Qv-GaW"/>
+                        <outlet property="newGameButton" destination="YZj-Qo-pZL" id="RKl-hf-uzf"/>
                         <outlet property="timerLabel" destination="fjx-yO-1z2" id="Mpt-uP-dUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-79.200000000000003" y="65.217391304347828"/>
+            <point key="canvasLocation" x="-172" y="-543"/>
+        </scene>
+        <!--Memory Blocks Info-->
+        <scene sceneID="Qln-LR-IXv">
+            <objects>
+                <viewController title="Memory Blocks Info" id="ruM-sQ-eoU" customClass="InfoViewController" customModule="MemoryBlocks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2bB-XF-dXd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlk-U0-UlK">
+                                <rect key="frame" x="16" y="20" width="343" height="607"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="TI2-XC-8su"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="q1i-wV-pSq"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EmH-8a-vmf"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AaX-97-tRi"/>
+                    <connections>
+                        <outlet property="infoScrollView" destination="zlk-U0-UlK" id="cFU-v2-XRL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6z1-5G-9R0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.40000000000001" y="617.54122938530736"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="pxB-VD-86b">
@@ -122,7 +150,16 @@
                                 <state key="normal" image="fa-info-circle">
                                     <color key="titleColor" red="0.11323424429999999" green="0.67844992879999999" blue="0.74638754129999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ruM-sQ-eoU" kind="show" id="eFr-LP-k27"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By: Diamond Mohanty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbK-yG-3lM">
+                                <rect key="frame" x="93.5" y="632.5" width="188" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.11323424429999999" green="0.67844992879999999" blue="0.74638754129999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sr6-k3-VTL"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,11 +167,13 @@
                             <constraint firstItem="o6M-ul-W79" firstAttribute="centerY" secondItem="g6G-UZ-wgc" secondAttribute="centerY" constant="-100" id="0Gg-Me-iaw"/>
                             <constraint firstItem="lmG-Pb-1B3" firstAttribute="leading" secondItem="HsJ-Kr-lDv" secondAttribute="trailing" constant="21" id="93b-Gl-5oz"/>
                             <constraint firstItem="lmG-Pb-1B3" firstAttribute="top" secondItem="J57-Vz-PbO" secondAttribute="bottom" constant="-28" id="E1h-I6-Pqs"/>
+                            <constraint firstItem="cbK-yG-3lM" firstAttribute="centerX" secondItem="g6G-UZ-wgc" secondAttribute="centerX" id="Htt-xK-yRU"/>
                             <constraint firstItem="J57-Vz-PbO" firstAttribute="leading" secondItem="lmG-Pb-1B3" secondAttribute="trailing" constant="16" id="I50-0k-P9C"/>
                             <constraint firstItem="lmG-Pb-1B3" firstAttribute="centerX" secondItem="g6G-UZ-wgc" secondAttribute="centerX" id="R8s-9q-fNg"/>
                             <constraint firstItem="lmG-Pb-1B3" firstAttribute="top" secondItem="HsJ-Kr-lDv" secondAttribute="bottom" constant="-30" id="XsL-DS-94c"/>
                             <constraint firstItem="o6M-ul-W79" firstAttribute="leading" secondItem="Sr6-k3-VTL" secondAttribute="leading" constant="16" id="hXv-xF-SZp"/>
                             <constraint firstItem="lmG-Pb-1B3" firstAttribute="top" secondItem="o6M-ul-W79" secondAttribute="bottom" constant="96.5" id="sGZ-dc-jzc"/>
+                            <constraint firstItem="Sr6-k3-VTL" firstAttribute="bottom" secondItem="cbK-yG-3lM" secondAttribute="bottom" constant="20" id="xIb-fX-3X1"/>
                             <constraint firstItem="Sr6-k3-VTL" firstAttribute="trailing" secondItem="o6M-ul-W79" secondAttribute="trailing" constant="16" id="yNA-ka-0rH"/>
                         </constraints>
                     </view>
@@ -148,7 +187,7 @@
         <image name="Icon awesome-play-circle" width="100" height="100"/>
         <image name="Icon awesome-share-alt" width="50" height="57.5"/>
         <image name="app-name" width="331" height="176"/>
-        <image name="fa-info-circle" width="50" height="51"/>
+        <image name="fa-info-circle" width="50" height="50.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

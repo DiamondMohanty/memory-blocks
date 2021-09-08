@@ -11,8 +11,8 @@ import MessageUI
 class WelcomeViewController: UIViewController {
 
     @IBAction func shareGame(_ sender: UIButton) {
-        let message = "Download the game."
-        if let link = NSURL(string: "https://www.google.com") {
+        let message = "View the source code of this game."
+        if let link = NSURL(string: "https://github.com/DiamondMohanty/memory-blocks/tree/main") {
             let objectsToShare = [message, link] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             self.present(activityVC, animated: true)

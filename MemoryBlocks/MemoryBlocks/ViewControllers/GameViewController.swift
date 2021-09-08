@@ -26,6 +26,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var moveLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var newGameButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +92,14 @@ class GameViewController: UIViewController {
         
     }
     
+    func getFinalScore() -> Int {
+        var score: Double = 100
+        score = score - ((Double(self.timeElapsed) * 0.1) + Double(self.totalMoves) * 0.5)
+        return Int(score)
+    }
+    
+    
+    
     deinit {
         self.timer?.invalidate()
     }
@@ -115,6 +124,25 @@ extension GameViewController: CardViewDelegate {
                     _ = upCards.map({ (card) -> Void in
                         card.state = .gone
                     })
+                    
+                    let remainingCards = self.cardViews.filter { (card) -> Bool in
+                        return card.state == .gone
+                    }
+                    
+                    if remainingCards.count == self.cardViews.count {
+                        let alert = UIAlertController(title: "Wahooo!!!", message: "Your Score is \(self.getFinalScore())", preferredStyle: .alert)
+                        let newGameAction = UIAlertAction(title: "Play Again", style: .default) { [unowned self] (action) in
+                            self.newGame(self.newGameButton)
+                        }
+                        
+                        let mainMenuAction = UIAlertAction(title: "Main Menu", style: .default) { [unowned self] (action) in
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        
+                        alert.addAction(newGameAction)
+                        alert.addAction(mainMenuAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
             
